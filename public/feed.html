@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialConnect - Home Feed</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="feed-page">
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <h1 class="logo"><i class="fas fa-users"></i> SocialConnect</h1>
+            </div>
+            
+            <div class="nav-center">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search SocialConnect...">
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="nav-icons">
+                    <div class="nav-icon active">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="nav-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="nav-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+                
+                <div class="user-menu">
+                    <div class="user-avatar" onclick="toggleUserMenu()">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div id="userDropdown" class="user-dropdown">
+                        <div class="user-info">
+                            <span id="userFullName">User Name</span>
+                            <small id="userUsername">@username</small>
+                        </div>
+                        <hr>
+                        <a href="#" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Create Post Section -->
+            <div class="create-post-card">
+                <div class="create-post-header">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="post-input-container">
+                        <textarea id="postContent" placeholder="What's on your mind?" maxlength="500"></textarea>
+                    </div>
+                </div>
+                
+                <div class="create-post-actions">
+                    <div class="post-options">
+                        <button class="post-option">
+                            <i class="fas fa-image"></i> Photo
+                        </button>
+                        <button class="post-option">
+                            <i class="fas fa-video"></i> Video
+                        </button>
+                        <button class="post-option">
+                            <i class="fas fa-smile"></i> Feeling
+                        </button>
+                    </div>
+                    
+                    <button id="postButton" class="btn btn-primary" onclick="createPost()" disabled>
+                        <i class="fas fa-share"></i> Post
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Posts Feed -->
+            <div id="postsContainer" class="posts-container">
+                <!-- Posts will be loaded here -->
+            </div>
+            
+            <!-- Loading indicator -->
+            <div id="loadingPosts" class="loading-posts">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading posts...</p>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Toast notifications -->
+    <div id="toast" class="toast"></div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
